@@ -1,4 +1,4 @@
-import Validation from 'validator.js';
+import Validation from './validator.js';
 
 export * from './errors/index.js';
 
