@@ -33,6 +33,13 @@ export default class Validation {
      */
     isNumber(): this;
     /**
+     * Validate if element is typeof boolean
+     * Require param: any.
+     * @returns {this} This.
+     * @throws {errors.IncorrectArgTypeError} Error whenever data is incorrect type.
+     */
+    isBoolean(): this;
+    /**
      * Validate if element is typeof array
      * Require param: array of strings.
      * @returns {this} This.

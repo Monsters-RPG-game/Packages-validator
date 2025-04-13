@@ -74,6 +74,19 @@ export default class Validation {
   }
 
   /**
+   * Validate if element is typeof boolean
+   * Require param: any.
+   * @returns {this} This.
+   * @throws {errors.IncorrectArgTypeError} Error whenever data is incorrect type.
+   */
+  isBoolean(): this {
+    const { v, name } = this;
+    if (typeof v !== 'boolean') throw new errors.IncorrectArgTypeError(`${name} should be boolean`);
+
+    return this;
+  }
+
+  /**
    * Validate if element is typeof array
    * Require param: array of strings.
    * @returns {this} This.
