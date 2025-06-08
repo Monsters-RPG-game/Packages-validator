@@ -18,7 +18,7 @@ export class FullError extends Error {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '003'
+ *           example: '100'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -28,7 +28,7 @@ export class MissingArgError extends FullError {
   constructor(param: string) {
     super(`Missing param: ${param}`);
     this.name = 'MissingArgError';
-    this.code = '001';
+    this.code = '100';
     this.status = 400;
   }
 }
@@ -47,7 +47,7 @@ export class MissingArgError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '004'
+ *           example: '102'
  *         message:
  *           type: string
  *           description: Error message describing the incorrect parameter.
@@ -57,7 +57,7 @@ export class IncorrectArgError extends FullError {
   constructor(err: string) {
     super(err);
     this.name = 'IncorrectArgError';
-    this.code = '002';
+    this.code = '102';
     this.status = 400;
   }
 }
@@ -76,7 +76,7 @@ export class IncorrectArgError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '007'
+ *           example: '103'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -86,7 +86,7 @@ export class IncorrectArgTypeError extends FullError {
   constructor(err: string) {
     super(err);
     this.name = 'IncorrectArgTypeError';
-    this.code = '003';
+    this.code = '103';
     this.status = 400;
   }
 }
@@ -105,7 +105,7 @@ export class IncorrectArgTypeError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '006'
+ *           example: '104'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -121,7 +121,36 @@ export class IncorrectArgLengthError extends FullError {
           : `${target} should be ${min} characters`,
     );
     this.name = 'IncorrectArgLengthError';
-    this.code = '004';
+    this.code = '104';
+    this.status = 400;
+  }
+}
+
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     IncorrectArgMinLengthError:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: Error name describing the error cause.
+ *           example: 'IncorrectArgMinLengthError'
+ *         code:
+ *           type: string
+ *           description: Unique code associated with the error.
+ *           example: '105'
+ *         message:
+ *           type: string
+ *           description: Error message describing the error cause.
+ *           pattern: "^Element has incorrect length: .+$"
+ */
+export class IncorrectArgMinLengthError extends FullError {
+  constructor(target: string, min: number) {
+    super(`${target} should be more than ${min} characters`);
+    this.name = 'IncorrectArgMinLengthError';
+    this.code = '105';
     this.status = 400;
   }
 }
@@ -140,7 +169,7 @@ export class IncorrectArgLengthError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '008'
+ *           example: '106'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -150,7 +179,7 @@ export class ElementTooShortError extends FullError {
   constructor(target: string, min: number) {
     super(`Element ${target} is too short. Minimum length is ${min}`);
     this.name = 'ElementTooShortError';
-    this.code = '005';
+    this.code = '106';
     this.status = 400;
   }
 }
@@ -169,7 +198,7 @@ export class ElementTooShortError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '009'
+ *           example: '107'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -179,7 +208,7 @@ export class ElementTooLongError extends FullError {
   constructor(target: string, min: number) {
     super(`Element ${target} is too long. Maximum length is ${min}`);
     this.name = 'ElementTooShortLongError';
-    this.code = '006';
+    this.code = '107';
     this.status = 400;
   }
 }

@@ -16,7 +16,7 @@ export declare class FullError extends Error {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '003'
+ *           example: '100'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -39,7 +39,7 @@ export declare class MissingArgError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '004'
+ *           example: '102'
  *         message:
  *           type: string
  *           description: Error message describing the incorrect parameter.
@@ -62,7 +62,7 @@ export declare class IncorrectArgError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '007'
+ *           example: '103'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -85,7 +85,7 @@ export declare class IncorrectArgTypeError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '006'
+ *           example: '104'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -93,6 +93,29 @@ export declare class IncorrectArgTypeError extends FullError {
  */
 export declare class IncorrectArgLengthError extends FullError {
     constructor(target: string, min: number | undefined, max: number);
+}
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     IncorrectArgMinLengthError:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: Error name describing the error cause.
+ *           example: 'IncorrectArgMinLengthError'
+ *         code:
+ *           type: string
+ *           description: Unique code associated with the error.
+ *           example: '105'
+ *         message:
+ *           type: string
+ *           description: Error message describing the error cause.
+ *           pattern: "^Element has incorrect length: .+$"
+ */
+export declare class IncorrectArgMinLengthError extends FullError {
+    constructor(target: string, min: number);
 }
 /**
  * @openapi
@@ -108,7 +131,7 @@ export declare class IncorrectArgLengthError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '008'
+ *           example: '106'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.
@@ -131,7 +154,7 @@ export declare class ElementTooShortError extends FullError {
  *         code:
  *           type: string
  *           description: Unique code associated with the error.
- *           example: '009'
+ *           example: '107'
  *         message:
  *           type: string
  *           description: Error message describing the error cause.

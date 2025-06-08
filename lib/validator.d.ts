@@ -87,6 +87,14 @@ export default class Validation {
      */
     isBetween(max: number, min?: number): this;
     /**
+     * Validate if element is bigger than x
+     * Require param: number.
+     * @param min Min allowed size.
+     * @returns {this} This.
+     * @throws {errors.IncorrectArgLengthError} Error whenever data is incorrect size.
+     */
+    hasBiggerValue(min: number): this;
+    /**
      * Validate if element is inside enum
      * Require param: any.
      * @param enumTarget Enum to compare param against.

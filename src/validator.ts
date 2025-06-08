@@ -200,6 +200,22 @@ export default class Validation {
   }
 
   /**
+   * Validate if element is bigger than x
+   * Require param: number.
+   * @param min Min allowed size.
+   * @returns {this} This.
+   * @throws {errors.IncorrectArgLengthError} Error whenever data is incorrect size.
+   */
+  hasBiggerValue(min: number): this {
+    const { v, name } = this;
+    const value = v as number;
+
+    if (value < min) throw new errors.IncorrectArgMinLengthError(name, min);
+
+    return this;
+  }
+
+  /**
    * Validate if element is inside enum
    * Require param: any.
    * @param enumTarget Enum to compare param against.
