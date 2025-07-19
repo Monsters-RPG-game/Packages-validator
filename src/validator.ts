@@ -68,7 +68,7 @@ export default class Validation {
    */
   isNumber(): this {
     const { v, name } = this;
-    if (typeof v !== 'number') throw new errors.IncorrectArgTypeError(`${name} should be number`);
+    if (typeof v !== 'number' || isNaN(v)) throw new errors.IncorrectArgTypeError(`${name} should be number`);
 
     return this;
   }
